@@ -13,21 +13,21 @@ public class PrintAndHide : MonoBehaviour
     void Start()
     {
         counter = 3;
-        rand = Random.Range(200, 250);
+        rand = Random.Range(200, 251);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.gameObject.tag == "Red" && counter == 100)
+        {
+            this.gameObject.SetActive(false);
+        }
+        else if (this.gameObject.tag == "Blue" && counter == rand)
+        {
+            rend.enabled = false;
+        }
         counter++;
         Debug.Log(this.gameObject.name + ":" + counter);
-        if(this.gameObject.tag == "Red" && counter == 100)
-        {
-            rend.enabled = false;
-        }
-        else if(this.gameObject.tag == "Blue" && counter == rand)
-        {
-            rend.enabled = false;
-        }
     }
 }
